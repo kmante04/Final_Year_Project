@@ -1,0 +1,20 @@
+#!/bin/bash
+
+[Unit]
+Description=Service Script for Docker Registry
+After=network.target
+
+[Service]
+Type=forking
+
+RemainAfterExit=yes
+ExecStart=/etc/systemd/system/docker_registry start
+ExecStop=/etc/systemd/system/docker_registry stop
+TimeoutSec=300
+SyslogIdentifier=tomcat-%i
+SuccessExitStatus=143
+
+
+
+[Install]
+WantedBy=multi-user.target

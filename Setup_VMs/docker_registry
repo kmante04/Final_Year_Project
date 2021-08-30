@@ -1,0 +1,58 @@
+#!/bin/sh
+
+export DATA_VOL=/home/dockerRegistry
+#Start Docker Registry 
+
+status() {
+    echo "Docker registry status ..."
+    docker ps
+}
+
+stopit() {
+    echo "Stopping docker registry ..."
+    docker stop registry    
+}
+startit() {
+    echo "Starting docker registry....."
+    #docker run -d -p 5000:5000 --restart=always -v $DATA_VOL/dockerRegistry:/var/lib/registry registry 
+	  docker run -d -p 5000:5000 \
+  -v /certs:/certs \
+  -v $DATA_VOL:/var/lib/registry \
+  -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/registry.crt \
+  -e REGISTRY_HTTP_TLS_KEY=/certs/registry.key \
+  --restart on-failure \
+  --name k8sregistry \
+  registry
+}
+case "$1" in
+    'start')
+        startit
+        ;;
+
+    'stop')
+        stopit
+        ;;
+
+    'restart')
+        stopit
+        startit
+        ;;
+
+
+    'force-reload')
+        stopit
+	startit
+        ;;
+
+    'status')
+        status
+        ;;
+
+    *)
+        echo "Usage: $0 { start | stop | restart | status }"
+        exit 1
+        ;;
+esac
+
+exit $?
+
