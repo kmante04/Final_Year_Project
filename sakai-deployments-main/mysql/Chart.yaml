@@ -1,0 +1,10 @@
+apiVersion: v1
+name: sakai
+description: Install mysql database deployment
+keywords:
+- mysql
+- database 
+version: 1.0.0
+maintainers:
+- name: kmante04
+  email: nanakwadwomante@gmail.com
