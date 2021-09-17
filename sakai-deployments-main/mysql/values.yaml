@@ -1,5 +1,5 @@
 namespace:
-  name: backendEnv
+  name: backendenv
  
 image: mysql:5.7.26
 replicaCount: 2
