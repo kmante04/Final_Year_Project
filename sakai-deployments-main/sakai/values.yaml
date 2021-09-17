@@ -1,5 +1,5 @@
 namespace:
-  name: frontendEnv
+  name: frontendenv
  
 image:
   repository: kmante04/sakai
