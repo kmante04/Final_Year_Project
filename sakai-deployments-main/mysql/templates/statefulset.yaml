@@ -36,7 +36,7 @@ spec:
               name: mysql-port
           volumeMounts:
             - name: mysqldata1
-              mountPath: /var/lib/mysql
+              mountPath: /var/lib/mysqls
 
   volumeClaimTemplates:
   - metadata:
