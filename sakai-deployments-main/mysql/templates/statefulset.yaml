@@ -1,0 +1,110 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  namespace: {{ .Values.namespace.name }} 
+spec:
+  replicas: {{ .Values.replicaCount }} 
+  serviceName: mysql-service
+  selector:
+    matchLabels:
+      app: mysql-container
+  template:
+    metadata:
+      labels:
+        app: mysql-container
+        tier: backend
+    spec:
+      containers:
+        - name: mysql-container
+          image: {{ .Values.image }}
+          env:
+            - name: MYSQL_USER
+              value: sakai
+            - name: MYSQL_ROOT_PASSWORD
+              value: toor
+
+            - name: MYSQL_DATABASE
+              value: sakai
+            - name: MYSQL_PASSWORD
+              value: examplepassword
+            - name: MQDATA
+              value: /mnt/data/mqdata
+
+          ports:
+            - containerPort: 3306
+              name: mysql-port
+          volumeMounts:
+            - name: mysql_data
+              mountPath: /var/lib/mysql
+
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql_data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 2Gi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# apiVersion: apps/v1
+# kind: StatefulSet
+# metadata:
+#   name: postgres
+#   namespace: {{ .Values.namespace.name }} 
+# spec:
+#   replicas: {{ .Values.replicaCount }} 
+#   serviceName: postgres-service
+#   selector:
+#     matchLabels:
+#       app: postgres-container
+#   template:
+#     metadata:
+#       labels:
+#         app: postgres-container
+#         tier: backend
+#     spec:
+#       containers:
+#         - name: postgres-container
+#           image: {{ .Values.image }}
+#           env:
+#             - name: POSTGRES_USER
+#               value: postgres
+#             - name: POSTGRES_PASSWORD
+#               value: postgres
+#             - name: POSTGRES_HOST
+#               value: postgres
+#             - name: PGDATA
+#               value: /data/pgdata
+#           ports:
+#             - containerPort: 5432
+#           volumeMounts:
+#             - name: postgres-volume-mount
+#               mountPath: /var/lib/postgresql/data
+#           # Volume Claim
+#   volumeClaimTemplates:
+#     - metadata:
+#         name: postgres-volume-mount
+#       spec:
+#         accessModes: ["ReadWriteOnce"]
+#         resources:
+#           requests:
+#             storage: 2Gi
