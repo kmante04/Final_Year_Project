@@ -5,4 +5,4 @@ image:
   repository: kmante04/sakai
   tag: v1.0.0
 
-replicaCount: 2
+replicaCount: 1
