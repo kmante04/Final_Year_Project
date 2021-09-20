@@ -23,11 +23,7 @@ spec:
       containers:
         - name: sakai-container
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: IfNotPresent 
-          resources:
-              requests:
-                cpu: 1000m
-                memory: 7Gi
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:
