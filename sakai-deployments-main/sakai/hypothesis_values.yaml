@@ -1,0 +1,8 @@
+namespace:
+  name: frontendenv
+ 
+image:
+  repository: hypothesis/sakai
+  tag: latest
+
+replicaCount: 1

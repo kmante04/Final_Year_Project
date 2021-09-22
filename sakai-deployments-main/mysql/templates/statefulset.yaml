@@ -22,12 +22,12 @@ spec:
             - name: MYSQL_USER
               value: sakai
             - name: MYSQL_ROOT_PASSWORD
-              value: toor
+              value: rootpass
 
             - name: MYSQL_DATABASE
               value: sakai
             - name: MYSQL_PASSWORD
-              value: examplepassword
+              value: sakaipass
             - name: MQDATA
               value: /mnt/data/mqdata
 
