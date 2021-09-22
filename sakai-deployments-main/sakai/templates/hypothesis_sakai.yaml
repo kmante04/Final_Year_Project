@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hypothesis_sakai-deployment
+  name: hypothesis-deployment
   labels:
     app: sakai
   namespace: {{ .Values.namespace.name }} 
@@ -9,7 +9,7 @@ spec:
   replicas: {{ .Values.replicaCount }} 
   selector:
     matchLabels:
-      app: hypothesis_sakai-container
+      app: hypothesis-container
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,10 +18,10 @@ spec:
   template:
     metadata:
       labels:
-        app: hypothesis_sakai-container
+        app: hypothesis-container
     spec:
       containers:
-        - name: hypothesis_sakai-container
+        - name: hypothesis-container
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: IfNotPresent
           ports:
