@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: hypothesis-container
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: hypothesis/sakai:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
