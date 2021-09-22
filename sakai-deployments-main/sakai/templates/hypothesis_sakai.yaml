@@ -6,7 +6,7 @@ metadata:
     app: sakai
   namespace: {{ .Values.namespace.name }} 
 spec:
-  replicas: {{ .Values.replicaCount }} 
+  replicas: 1
   selector:
     matchLabels:
       app: hypothesis-container
