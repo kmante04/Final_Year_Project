@@ -38,5 +38,5 @@ spec:
               value: sakai
 
             - name: MYSQL_HOST
-              value: 10.88.0.11
+              value: 10.88.0.19
               
