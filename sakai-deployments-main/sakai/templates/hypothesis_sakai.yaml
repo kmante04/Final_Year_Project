@@ -4,9 +4,9 @@ metadata:
   name: hypothesis_sakai-deployment
   labels:
     app: sakai
-  namespace: {{ .Hypothesis_values.namespace.name }} 
+  namespace: {{ .hypothesis_values.namespace.name }} 
 spec:
-  replicas: {{ .Hypothesis_values.replicaCount }} 
+  replicas: {{ .hypothesis_values.replicaCount }} 
   selector:
     matchLabels:
       app: hypothesis_sakai-container
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: hypothesis_sakai-container
-          image: {{ .Hypothesis_values.image.repository }}:{{ .Hypothesis_values.image.tag }}
+          image: {{ .hypothesis_values.image.repository }}:{{ .hypothesis_values.image.tag }}
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
