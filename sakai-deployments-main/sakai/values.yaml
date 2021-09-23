@@ -3,6 +3,6 @@ namespace:
  
 image:
   repository: dalan/sakai-10.3
- # tag: v1.0.0
+  tag: v1.0.0
 
 replicaCount: 3
