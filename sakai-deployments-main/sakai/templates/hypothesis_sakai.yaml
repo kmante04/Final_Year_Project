@@ -1,42 +1,42 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: hypothesis-deployment
-  labels:
-    app: sakai
-  namespace: {{ .Values.namespace.name }} 
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: hypothesis-container
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate 
-  template:
-    metadata:
-      labels:
-        app: hypothesis-container
-    spec:
-      containers:
-        - name: hypothesis-container
-          image: hypothesis/sakai:latest
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 8080
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: rootpass
-            - name: MYSQL_USER
-              value: sakai
-            - name: MYSQL_PASSWORD
-              value: sakaipass
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: hypothesis-deployment
+ # labels:
+  #  app: sakai
+  #namespace: {{ .Values.namespace.name }} 
+#spec:
+#  replicas: 1
+ # selector:
+  #  matchLabels:
+  #    app: hypothesis-container
+  #strategy:
+   # rollingUpdate:
+    #  maxSurge: 25%
+    #  maxUnavailable: 25%
+   # type: RollingUpdate 
+  #template:
+  #  metadata:
+   #   labels:
+   #     app: hypothesis-container
+   # spec:
+    #  containers:
+     #   - name: hypothesis-container
+      #    image: hypothesis/sakai:latest
+       #   imagePullPolicy: IfNotPresent
+       #   ports:
+        #    - containerPort: 8080
+        #  env:
+         #   - name: MYSQL_ROOT_PASSWORD
+          #    value: rootpass
+           # - name: MYSQL_USER
+           #   value: sakai
+          #  - name: MYSQL_PASSWORD
+           #   value: sakaipass
 
-            - name: MYSQL_DATABASE
-              value: sakai
+          #  - name: MYSQL_DATABASE
+           #   value: sakai
 
-            - name: MYSQL_HOST
-              value: 10.88.0.19
+            #- name: MYSQL_HOST
+             # value: 10.88.0.19
               
