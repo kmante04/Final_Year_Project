@@ -2,7 +2,7 @@ namespace:
   name: frontendenv
  
 image:
-  repository: kmante04/tomcat_sakai
-  tag: v1.0.0
+  repository: dalan/sakai-10.3
+ # tag: v1.0.0
 
 replicaCount: 3
