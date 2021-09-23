@@ -21,28 +21,28 @@ spec:
         app: sakai-container
     spec:
       containers:
-        - name: stickynotes-container
+        - name: sakai-container
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: IfNotPresent
-           ports:
+          imagePullPolicy: IfNotPresent 
+          
+          ports:
             - containerPort: 8080
           env:
-            name: MYSQL_USER
+            - name: MYSQL_USER
               value: sakai
             - name: MYSQL_ROOT_PASSWORD
               value: your_MySQL_sakai_user_password
-            - name: MYSQL_DATABASE
-              value: sakai
             - name: MYSQL_PASSWORD
               value: your_MySQL_sakai_user_password
 
+            - name: MYSQL_DATABASE
+              value: sakai
+
             - name: MYSQL_HOST
-              value: 10.88.0.19
+              value: 10.72.0.14
               
            
               
-    
-  
   
   
 # apiVersion: apps/v1
