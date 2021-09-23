@@ -4,5 +4,8 @@ namespace:
 image:
   repository: kmante04/tomcat_sakai
   tag: v1.0.0
+ image:
+  repository: hypothesis/sakai
+  tag: latest
 
 replicaCount: 3
