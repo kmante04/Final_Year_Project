@@ -21,10 +21,10 @@ spec:
         app: sakai-container
     spec:
       containers:
-        - name: sakai-container
+        - name: stickynotes-container
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: IfNotPresent
-          ports:
+           ports:
             - containerPort: 8080
           env:
             name: MYSQL_USER
