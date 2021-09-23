@@ -27,18 +27,17 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: rootpass
-            - name: MYSQL_USER
+            name: MYSQL_USER
               value: sakai
-            - name: MYSQL_PASSWORD
-              value: sakaipass
-
+            - name: MYSQL_ROOT_PASSWORD
+              value: your_MySQL_sakai_user_password
             - name: MYSQL_DATABASE
               value: sakai
+            - name: MYSQL_PASSWORD
+              value: your_MySQL_sakai_user_password
 
             - name: MYSQL_HOST
-              value: 10.88.0.11
+              value: 10.88.0.19
               
            
               

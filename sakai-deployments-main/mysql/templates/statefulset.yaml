@@ -23,7 +23,6 @@ spec:
               value: sakai
             - name: MYSQL_ROOT_PASSWORD
               value: your_MySQL_sakai_user_password
-
             - name: MYSQL_DATABASE
               value: sakai
             - name: MYSQL_PASSWORD
