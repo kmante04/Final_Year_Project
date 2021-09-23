@@ -10,16 +10,11 @@ spec:
   clusterIP: None
   ports:
     port: 3306
-  
     name: mysql-port
   selector:
       app: mysql-container
   type: ClusterIP
-  #ports:
-  #- protocol: TCP
-   # port: 3306
-    #targetPort: 3306
- # type: LoadBalancer
+  
   
 
 # apiVersion: v1
