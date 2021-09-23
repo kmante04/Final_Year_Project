@@ -7,7 +7,7 @@ metadata:
   labels:
     app: mysql-container
 spec:
- # clusterIP: None
+  clusterIP: None
   ports:
   - protocol: TCP
     port: 3306
