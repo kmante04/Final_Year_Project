@@ -7,13 +7,13 @@ metadata:
   labels:
     app: mysql-container
 spec:
-  #clusterIP: 10.88.0.8
+  clusterIP: none
   ports:
   - port: 3306
     name: mysql-port
   selector:
       app: mysql-container
-  type: NodePort
+  type: ClusterIP
   
 
 # apiVersion: v1
