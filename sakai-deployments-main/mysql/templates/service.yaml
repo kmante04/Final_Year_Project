@@ -13,7 +13,7 @@ spec:
     name: mysql-port
   selector:
       app: mysql-container
-  type: ClusterIP
+  type: NodePort
   
 
 # apiVersion: v1
