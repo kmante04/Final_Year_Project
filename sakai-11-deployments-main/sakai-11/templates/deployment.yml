@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sakai-deployment
+  labels:
+    app: sakai
+  namespace: {{ .Values.namespace.name }} 
+spec:
+  replicas: {{ .Values.replicaCount }} 
+  selector:
+    matchLabels:
+      app: sakai-container
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate 
+  template:
+    metadata:
+      labels:
+        app: sakai-container
+    spec:
+      containers:
+        - name: sakai-container
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: IfNotPresent 
+          
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MYSQL_USER
+              value: sakai
+            - name: MYSQL_ROOT_PASSWORD
+              value: your_MySQL_sakai_user_password
+            - name: MYSQL_PASSWORD
+              value: your_MySQL_sakai_user_password
+
+            - name: MYSQL_DATABASE
+              value: sakai
+
+            - name: MYSQL_HOST
+              value: 10.72.0.14
+              
+           
+              
+  
+  
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: stickynotes-deployment
+#   labels:
+#     app: stickynotes
+#   namespace: {{ .Values.namespace.name }} 
+# spec:
+#   replicas: {{ .Values.replicaCount }} 
+#   selector:
+#     matchLabels:
+#       app: stickynotes-container
+#   strategy:
+#     rollingUpdate:
+#       maxSurge: 25%
+#       maxUnavailable: 25%
+#     type: RollingUpdate 
+#   template:
+#     metadata:
+#       labels:
+#         app: stickynotes-container
+#     spec:
+#       containers:
+#         - name: stickynotes-container
+#           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+#           imagePullPolicy: IfNotPresent 
+#           resources:
+#               requests:
+#                 cpu: 50m
+#                 memory: 256Mi
+#           ports:
+#             - containerPort: 8000
+#           env:
+#             - name: POSTGRES_USER
+#               value: postgres
+#             - name: POSTGRES_PASSWORD
+#               value: postgres
+#             - name: POSTGRES_HOST
+#               value: postgres 
+#             - name: PGDATA
+#               value: /data/pgdata

@@ -1,0 +1,64 @@
+#apiVersion: batch/v1
+#ind: Job
+#metadata:
+ # name: django-migrations
+#spec:
+  #template:
+    #spec:
+     # containers:
+      #  - name: django
+        #  image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+       #   command: ['python', 'manage.py', 'migrate']
+          # command: ['python', 'manage.py', 'makemigrations, stickynotes']
+          # args:
+            # - rm -rf /migrations/;
+            #   python manage.py migrate --fake;
+            #   python manage.py makemigrations stickynotes;
+            #   python manage.py migrate --fake-initial;
+
+        #  env:
+         #   - name: POSTGRES_USER
+          #    value: postgres
+           # - name: POSTGRES_PASSWORD
+           #   value: postgres
+           # - name: POSTGRES_DB
+            #  value: stickynotesDB
+
+            #- name: POSTGRES_HOST
+     #         value: 10.72.0.14
+      #restartPolicy: Never
+  #backoffLimit: 2
+
+
+
+
+
+
+
+# 10.4.0.81
+
+
+# apiVersion: batch/v1
+# kind: Job
+# metadata:
+#   name: django-migrations
+# spec:
+#   template:
+#     spec:
+#       containers:
+#         - name: django
+#           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+#           command: ['python', 'manage.py', 'migrate']
+#           env:
+#             - name: POSTGRES_USER
+#               value: postgres
+#             - name: POSTGRES_PASSWORD
+#               value: postgres  
+#             - name: POSTGRES_HOST
+#               value: postgres
+#             - name: PGDATA
+#               value: /data/pgdata
+            
+#       restartPolicy: Never
+#   backoffLimit: 2
+

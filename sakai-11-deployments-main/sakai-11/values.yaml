@@ -1,0 +1,8 @@
+namespace:
+  name: frontendenv
+ 
+image:
+  repository: dalan/sakai-10.3
+  tag: latest
+
+replicaCount: 3
