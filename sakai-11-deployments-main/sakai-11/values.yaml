@@ -1,8 +1,8 @@
 namespace:
-  name: frontendenv
+  name: newfrontendenv
  
 image:
-  repository: dalan/sakai-10.3
+  repository: bemccandless/sakai-demo
   tag: latest
 
 replicaCount: 3
